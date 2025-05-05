@@ -76,6 +76,7 @@ class CreateInvoiceCase:
         try:
             response = self.soap_invoice.send_xml(zip_invoice)
             is_valid, messages = generic.extract_errors_invoice(response.text)
+            print(response.text)
 
             if is_valid == 'false':
                 print(f"Error al enviar la factura. XML enviado: {self.xml_name}")
